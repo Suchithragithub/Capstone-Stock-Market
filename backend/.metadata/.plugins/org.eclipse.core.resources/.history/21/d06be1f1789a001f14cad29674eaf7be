@@ -1,0 +1,5 @@
+package com.capstone.userservice.model;
+
+public class User {
+
+}
