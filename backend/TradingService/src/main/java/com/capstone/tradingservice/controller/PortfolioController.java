@@ -18,13 +18,13 @@ import com.capstone.tradingservice.model.Stock;
 import com.capstone.tradingservice.service.PortfolioService;
 
 @RestController
-@RequestMapping
+@RequestMapping("/api/portfolio")
 public class PortfolioController {
 	
 	@Autowired
 	private PortfolioService portfolioService;
 	
-	@PostMapping
+	@PostMapping("/createPortfolio")
     public ResponseEntity<Portfolio> createPortfolio(@RequestBody Portfolio portfolio) {
         Portfolio createdPortfolio = portfolioService.createPortfolio(portfolio);
         return ResponseEntity.ok(createdPortfolio);

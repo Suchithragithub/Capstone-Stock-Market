@@ -3,9 +3,10 @@ package com.capstone.tradingservice.model;
 import java.util.Date;
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.FetchType;
-import jakarta.persistence.OneToMany;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -14,8 +15,10 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Document(collection = "portfolio")
 public class Portfolio {
 	
+	@Id
 	private String portfolioId;
     private String portfolioName;
     private String investmentAgenda;
@@ -23,7 +26,6 @@ public class Portfolio {
     private Date updatedAt;
     private String userID;
     
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Stock> stocks;
 
 }
