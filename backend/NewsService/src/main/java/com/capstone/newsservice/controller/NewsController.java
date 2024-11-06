@@ -38,7 +38,7 @@ public class NewsController {
     
     @PutMapping("/{id}")
     public ResponseEntity<NewsArticle> updateNewsArticle(
-            @PathVariable("id") Long id,
+            @PathVariable("id") String id,
             @RequestBody NewsArticle updatedArticle) {
 
         String sentiment = newsService.analyzeSentiment(updatedArticle.getDescription());

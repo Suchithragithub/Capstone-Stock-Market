@@ -27,7 +27,7 @@ public class UserService {
     }
 
     
-    public User getUserById(Long userId) {
+    public User getUserById(String userId) {
         return userRepository.findById(userId).orElse(null);
     }
 
@@ -37,7 +37,7 @@ public class UserService {
     }
 
     
-    public void deleteUser(Long userId) {
+    public void deleteUser(String userId) {
         userRepository.deleteById(userId);
     }
 }

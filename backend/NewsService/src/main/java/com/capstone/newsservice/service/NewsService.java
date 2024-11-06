@@ -23,7 +23,7 @@ public class NewsService {
         newsArticleRepository.saveAll(articles);
     }
     
-    public NewsArticle updateNewsArticle(Long id, NewsArticle updatedArticle) {
+    public NewsArticle updateNewsArticle(String id, NewsArticle updatedArticle) {
         Optional<NewsArticle> existingArticle = newsArticleRepository.findById(id);
 
         if (existingArticle.isPresent()) {

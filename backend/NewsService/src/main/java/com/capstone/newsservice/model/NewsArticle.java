@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 public class NewsArticle {
 	
     @Id
-    private Long id;
+    private String id;
     private String title;
     private String description;
     private String url;
