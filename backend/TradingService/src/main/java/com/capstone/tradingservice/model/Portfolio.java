@@ -25,7 +25,6 @@ public class Portfolio {
     private Date createdAt;
     private Date updatedAt;
     private String userID;
-    
-    private List<Stock> stocks;
+   
 
 }

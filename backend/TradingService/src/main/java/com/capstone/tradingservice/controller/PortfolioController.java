@@ -14,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.capstone.tradingservice.model.Portfolio;
-import com.capstone.tradingservice.model.Stock;
+
 import com.capstone.tradingservice.service.PortfolioService;
 
 @RestController
@@ -56,31 +56,8 @@ public class PortfolioController {
         return ResponseEntity.noContent().build();
     }
 
-    // Stock Endpoints
+   
 
-    @PostMapping("/{portfolioId}/stocks")
-    public ResponseEntity<Stock> createStock(@PathVariable String portfolioId, @RequestBody Stock stock) {
-        Portfolio portfolio = portfolioService.getPortfolioById(portfolioId)
-                .orElseThrow(() -> new RuntimeException("Portfolio not found"));
-        portfolio.getStocks().add(stock);
-        portfolioService.updatePortfolio(portfolio);
-        return ResponseEntity.ok(stock);
-    }
-
-    @GetMapping("/{portfolioId}/stocks")
-    public ResponseEntity<List<Stock>> getAllStocks(@PathVariable String portfolioId) {
-        Portfolio portfolio = portfolioService.getPortfolioById(portfolioId)
-                .orElseThrow(() -> new RuntimeException("Portfolio not found"));
-        return ResponseEntity.ok(portfolio.getStocks());
-    }
-
-    @DeleteMapping("/{portfolioId}/stocks/{stockId}")
-    public ResponseEntity<Void> deleteStock(@PathVariable String portfolioId, @PathVariable String stockId) {
-        Portfolio portfolio = portfolioService.getPortfolioById(portfolioId)
-                .orElseThrow(() -> new RuntimeException("Portfolio not found"));
-        portfolio.getStocks().removeIf(stock -> stock.getStockId().equals(stockId));
-        portfolioService.updatePortfolio(portfolio);
-        return ResponseEntity.noContent().build();
-    }
+   
 	
 }
